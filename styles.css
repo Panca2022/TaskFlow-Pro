@@ -1,0 +1,273 @@
+/* ==== Root Variables ==== */
+:root {
+  --bg-color: #0a0a0a;
+  --text-color: #ffffff;
+  --accent: #00fff7;
+  --card-bg: #121212;
+  --shadow: 0 0 10px #00fff788;
+}
+
+/* ==== Reset and Base ==== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 30px;
+  text-align: center;
+}
+
+/* ==== Title ==== */
+h1 {
+  font-size: 2.2rem;
+  color: var(--accent);
+  text-shadow: 0 0 5px var(--accent);
+  margin-bottom: 20px;
+}
+
+/* ==== Layout Container ==== */
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ==== Task Panel ==== */
+.task-panel {
+  background-color: var(--card-bg);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  width: 500px;
+  max-width: 100%;
+}
+
+.row {
+  margin-bottom: 15px;
+}
+
+.input-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.input-row input,
+.input-row select,
+.input-row textarea {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background-color: #1a1a1a;
+  color: var(--text-color);
+  font-size: 1rem;
+  min-width: 140px;
+}
+
+textarea {
+  resize: vertical;
+  width: 100%;
+  min-height: 60px;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  background-color: var(--accent);
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #00ddd5;
+}
+
+/* ==== Task List ==== */
+#taskList {
+  list-style: none;
+  margin-top: 30px;
+  padding: 0;
+  text-align: left;
+}
+
+#taskList li {
+  background-color: #1a1a1a;
+  border-left: 4px solid var(--accent);
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 4px #00fff744;
+}
+
+/* ==== Progress Bar ==== */
+#progressBar {
+  background-color: #333;
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+#progress {
+  height: 100%;
+  background-color: var(--accent);
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+/* ==== Side Panel ==== */
+.side-panel {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  min-width: 220px;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-self: flex-start;
+}
+
+.side-panel input[type="file"] {
+  color: var(--text-color);
+}
+
+.side-panel input[type="text"] {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background-color: #1a1a1a;
+  color: var(--text-color);
+}
+
+.side-panel h3 {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+/* ==== Responsive ==== */
+@media screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .task-panel,
+  .side-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+}
+
+#searchInput {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background-color: #1a1a1a;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  width: 100%;
+}
+
+#searchInput::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: #00fff7;
+  box-shadow: 0 0 6px #00fff799;
+}
+
+/* ==== Styled File Input (Import Tasks Button) ==== */
+.custom-file {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
+  cursor: pointer;
+}
+
+.custom-file input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.custom-file span {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 14px;
+  background-color: var(--accent);
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 8px #00fff744;
+}
+
+.custom-file span:hover {
+  background-color: #00ddd5;
+  box-shadow: 0 0 10px #00fff799;
+}
+
+/* ==== Light Mode Support ==== */
+body.light-mode {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+body.light-mode .task-panel,
+body.light-mode .side-panel {
+  background-color: #ffffff;
+  color: #000;
+  box-shadow: 0 0 10px #00000022;
+}
+
+body.light-mode input,
+body.light-mode select,
+body.light-mode textarea,
+body.light-mode #searchInput {
+  background-color: #f9f9f9;
+  color: #000;
+  border: 1px solid #00aaa0;
+}
+
+body.light-mode button {
+  background-color: #00aaa0;
+  color: #fff;
+}
+
+body.light-mode #taskList li {
+  background-color: #f1f1f1;
+  border-left: 4px solid #00aaa0;
+}
+
+body.light-mode h1,
+body.light-mode h3 {
+  color: #00aaa0;
+  text-shadow: none;
+}

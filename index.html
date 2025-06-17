@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TaskFlow Pro+</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>📝 TaskFlow Pro+</h1>
+
+  <div class="main-container">
+    <!-- ✅ Main Task Panel -->
+    <div class="task-panel">
+      <!-- Row 1: Task Name, Due Date, Category -->
+      <div class="row input-row">
+        <input id="taskInput" type="text" placeholder="Enter a new task..." />
+        <input id="dueDate" type="date" />
+        <select id="category">
+          <option>General</option>
+          <option>Work</option>
+          <option>Personal</option>
+          <option>School</option>
+        </select>
+      </div>
+
+      <!-- Row 2: Description -->
+      <div class="row input-row">
+        <textarea id="descInput" placeholder="Description"></textarea>
+      </div>
+
+      <!-- Row 3: Add Button -->
+      <div class="row button-row">
+        <button onclick="addTask()">Add Task</button>
+      </div>
+
+      <!-- Task List -->
+      <ul id="taskList"></ul>
+
+      <!-- Progress Bar -->
+      <div id="progressBar">
+        <div id="progress"></div>
+      </div>
+    </div>
+
+    <!-- ✅ Sidebar Panel -->
+    <div class="side-panel">
+      <h3>🛠 Tools</h3>
+
+      <input id="searchInput" oninput="filterTasks()" placeholder="Search tasks..." />
+
+      <button onclick="clearAll()">Clear All</button>
+      <button onclick="toggleTheme()">Toggle Theme</button>
+      <button onclick="exportTasks()">Export</button>
+
+      <label class="custom-file">
+        <input type="file" onchange="importTasks(event)">
+        <span>📂 Import Tasks</span>
+    </label>
+
+    </div>
+  </div>
+
+  <!-- JS Script -->
+  <script src="script.js"></script>
+</body>
+</html>
