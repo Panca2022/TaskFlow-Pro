@@ -6,7 +6,7 @@
 
 ## 🌐 Live Demo
 
-> **[👉 View TaskFlow Pro+ on GitHub Pages](https://Panca2022.github.io/taskflow-pro/)**
+> **[👉 View TaskFlow Pro+ on GitHub Pages](https://panca2022.github.io/TaskFlow-Pro/)**
 
 ---
 
